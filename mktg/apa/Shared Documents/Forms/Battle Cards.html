@@ -9,7 +9,17 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
      
-     <link rel="stylesheet" href="css/custom.css">
+     <style>
+
+
+#s4-workspace {
+    background-image: url("https://dummyimage.com/10x53/000/373c80");
+    background-repeat: repeat-x;
+}
+
+
+    </style>
+
   </head>
   <body>
 
@@ -32,6 +42,47 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
      
-     <script src="js/custom.js"></script>
+     <script>
+     
+     
+     
+     
+     
+             //add body class
+        // find the pathname
+        var urlPath = window.location.pathname;
+        
+        //convert to lowercase
+        urlPath.match(/\/(.*?)(\+|$)/)[1].toLowerCase();
+        decodeURIComponent(urlPath);
+
+
+
+        // If dev remove prodhub sub folder from class name
+        if (window.location.hostname == "altairnet.sharepointtest.altair.com" ) {
+             // remove the first character and prodhub
+          urlPath = urlPath.replace(/\//g, '-').slice(9);
+        } else {
+          // remove the first character
+          urlPath = urlPath.replace(/\//g, '-').slice(1);
+        }
+
+        // Split the pathname and create an array
+        var pathArray = window.location.pathname.split( '/' );
+        var firstLevel = pathArray[0];
+        var secondLevel = pathArray[1];
+        var thirdLevel = pathArray[2];
+ 
+        //remove file extension
+        //urlPath = urlPath.replace(/\.[^/.]+$/, "");
+        urlPath = urlPath.replace(/\.[^/.]+$/, "").replace('%','');
+        
+        // add classes to body
+        $(document.body).addClass(urlPath).addClass(firstLevel).addClass(secondLevel).addClass(thirdLevel);
+     
+     
+     
+     
+     </script>
   </body>
 </html>
