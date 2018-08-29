@@ -21,7 +21,7 @@
     </style>
 
   </head>
-  <body>
+  <body id="s4-workspace">
 
      <div class="container">
         <div class="row">
@@ -51,12 +51,10 @@
              //add body class
         // find the pathname
         var urlPath = window.location.pathname;
-        
+        urlPath = decodeURIComponent(urlPath).replace(/\s+/g, '-').toLowerCase();
+
         //convert to lowercase
         urlPath.match(/\/(.*?)(\+|$)/)[1].toLowerCase();
-        decodeURIComponent(urlPath);
-
-
 
         // If dev remove prodhub sub folder from class name
         if (window.location.hostname == "altairnet.sharepointtest.altair.com" ) {
@@ -75,7 +73,8 @@
  
         //remove file extension
         //urlPath = urlPath.replace(/\.[^/.]+$/, "");
-        urlPath = urlPath.replace(/\.[^/.]+$/, "").replace('%','');
+        urlPath = urlPath.replace(/\.[^/.]+$/, "").toLowerCase();
+        
         
         // add classes to body
         $(document.body).addClass(urlPath).addClass(firstLevel).addClass(secondLevel).addClass(thirdLevel);
